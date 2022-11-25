@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Convenient-access/static/css/main.84e69d09.css",
+    "main.js": "/Convenient-access/static/js/main.bc60edad.js",
+    "static/js/787.c1112931.chunk.js": "/Convenient-access/static/js/787.c1112931.chunk.js",
+    "static/media/task.png": "/Convenient-access/static/media/task.6e62eade53a29b3e64c8.png",
+    "index.html": "/Convenient-access/index.html",
+    "main.84e69d09.css.map": "/Convenient-access/static/css/main.84e69d09.css.map",
+    "main.bc60edad.js.map": "/Convenient-access/static/js/main.bc60edad.js.map",
+    "787.c1112931.chunk.js.map": "/Convenient-access/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.84e69d09.css",
+    "static/js/main.bc60edad.js"
+  ]
+}
