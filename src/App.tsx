@@ -15,6 +15,9 @@ import { Button, Image } from '@salutejs/plasma-ui';
 import { headline2} from '@salutejs/plasma-tokens';
 import task from './assets/task.png'
 import ListItem from "./components/list-item/ListItem";
+import {
+  isIOS
+} from "react-device-detect";
 import { reducer } from "./store";
 
 const initializeAssistant = (getState: any) => {
@@ -46,30 +49,33 @@ export const App: FC = memo(() => {
       subtitle: "Возможность получать скидки от партнёров и индивидуальные условия от банка"
     },
   ]
-
+  let link = ""
   const assistantStateRef = useRef<AssistantAppState>();
   const assistantRef = useRef<ReturnType<typeof createAssistant>>();
 
   useEffect(() => {
     assistantRef.current = initializeAssistant(() => assistantStateRef.current);
-
+    console.log(assistantRef.current)
     // assistantRef.current.on("data", ({ action }: any) => {
     //   if (action) {
     //     dispatch(action);
     //   }
     // });
+    link = isIOS ? "sbolonline://sberbankid/omniconsent?servicesCode=25?internal_source=audiohelper160503" :
+    "android-app://ru.sberbankmobile/sberbankid/agreement?servicesCode=25?internal_source=audiohelper160503"
+    console.log(isIOS)
   }, []);
 
   return (
     <main className="container">
       <Image
         src={task}
-        width="160px"
-        height="160px"
+        width="120px"
+        height="120px"
         alt="Картинка для примера"
       />
       <h2 style={headline2}>
-        Услуга
+        Бесплатная услуга
         <br />
         "Удобный доступ"
       </h2>
@@ -79,7 +85,10 @@ export const App: FC = memo(() => {
             <ListItem key={index} index={index + 1} title={item.title} subtitle={item.subtitle} />
           )
         }
-        <Button text="Узнать больше и управлять" size="m" view="primary" />
+        
+        <Button size="m" view="primary" >
+          <a href={link} target="_blank"> Узнать больше и управлять</a>
+        </Button>
         {/* <p >
           После перехода Вы получите дополнительные сведения и расширенную информацию об услуге
         </p> */}
