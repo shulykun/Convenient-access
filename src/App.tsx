@@ -63,7 +63,7 @@ export const App: FC = memo(() => {
     //     dispatch(action);
     //   }
     // });
-    link = isIOS ? "ios-app://sbolonline://sberbankid/omniconsent?servicesCode=25?internal_source=audiohelper160503" :
+    link = isIOS ? "sbolonline://sberbankid/omniconsent?servicesCode=25?internal_source=audiohelper160503" :
     "android-app://ru.sberbankmobile/sberbankid/agreement?servicesCode=25?internal_source=audiohelper160503"
     console.log(isIOS)
   }, []);
@@ -88,8 +88,8 @@ export const App: FC = memo(() => {
           )
         }
         
-        <Button size="m" view="primary" >
-          <a href={link} android-apk={link_and} > Узнать больше и управлять</a>
+        <Button size="m" view="primary" onClick={()=>{console.log(link)}}>
+          <a href={link} android-apk={link_and} target="_self"> Узнать больше и управлять</a>
         </Button>
         {/* <p >
           После перехода Вы получите дополнительные сведения и расширенную информацию об услуге
